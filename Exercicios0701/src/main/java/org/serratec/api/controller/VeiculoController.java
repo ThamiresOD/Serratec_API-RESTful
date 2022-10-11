@@ -56,6 +56,7 @@ import org.springframework.web.bind.annotation.RestController;
 		veiculoRepository.deleteById(id);
 		return ResponseEntity.noContent().build();
 		}
+		
 		@PutMapping("/{id}")
 		public ResponseEntity<Veiculo> alterar(@PathVariable Long id, 
 		@Valid @RequestBody Veiculo veiculo){

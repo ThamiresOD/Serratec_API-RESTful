@@ -12,7 +12,7 @@
 	<artifactId>Exercicios0702</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Exercicios0702</name>
-	<description>Aluno</description>
+	<description>Cliente</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
