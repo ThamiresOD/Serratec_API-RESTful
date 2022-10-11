@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "cliente")
@@ -19,16 +21,22 @@ public class Cliente {
 	@Column(name = "id_cliente")
 	private Long id;
 	
+	@NotBlank
 	@Column(nullable = false, length = 60)
 	private String nome;
-	
+
+	@NotBlank
+	//@CPF
 	@Column(nullable = false, length = 11)
 	private String cpf;
 	
+	//@Email
 	@Column(length = 50)
 	private String email;
 	
+	@NotBlank
 	@Column(name = "data_nascimento")
+	//@Past(message = "Não pode nascer no futuro")
 	private LocalDate dataNascimento;
 	
 	public Cliente() {
