@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -42,9 +41,9 @@ public class ClienteController {
 	}
 
 	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente inserir(@Valid @RequestBody Cliente cliente) {
-		return clienteRepository.save(cliente);
+	public ResponseEntity<Cliente> inserir(@Valid @RequestBody Cliente cliente) {
+		Cliente clienteBanco = clienteRepository.save(cliente);
+		return ResponseEntity.status(HttpStatus.CREATED).body(clienteBanco);
 	}
 
 	@PutMapping("/{id}")

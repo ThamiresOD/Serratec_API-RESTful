@@ -41,13 +41,13 @@ public class ProdutoController {
 	return ResponseEntity.notFound().build();
 	}
 	
-	@PostMapping("/{id}")
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Produto inserir(@Valid @RequestBody Produto produto) {
 		return produtoRepository.save(produto);
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Produto> atualizar(@PathVariable Long id,@Valid @RequestBody Produto produto) {
 		if (produtoRepository.existsById(id)) {
