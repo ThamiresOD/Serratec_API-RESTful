@@ -31,7 +31,7 @@ public class ClienteController {
 		return clienteRepository.findAll();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{id")
 	public ResponseEntity<Cliente> pesquisar(@PathVariable Long id) {
 		Optional<Cliente> cliente = clienteRepository.findById(id);
 		if (cliente.isPresent()) {
