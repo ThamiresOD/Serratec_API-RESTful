@@ -28,11 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 		@Autowired
 		private VeiculoRepository veiculoRepository;
 		
-		@PostMapping
-		@ResponseStatus(HttpStatus.CREATED)
-		public Veiculo inserir(@Valid @RequestBody Veiculo veiculo) {
-			return veiculoRepository.save(veiculo);
-		}
 		
 		@GetMapping
 		public List<Veiculo> listar() {
@@ -48,6 +43,12 @@ import org.springframework.web.bind.annotation.RestController;
 		return ResponseEntity.ok(veiculo.get());
 		}
 
+		@PostMapping
+		@ResponseStatus(HttpStatus.CREATED)
+		public Veiculo inserir(@Valid @RequestBody Veiculo veiculo) {
+			return veiculoRepository.save(veiculo);
+		}
+		
 		@DeleteMapping("/{id}")
 		public ResponseEntity<Void> apagar(@PathVariable Long id){
 		if (!veiculoRepository.existsById(id)) {

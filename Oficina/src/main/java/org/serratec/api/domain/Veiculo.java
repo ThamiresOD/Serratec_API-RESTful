@@ -3,9 +3,12 @@ package org.serratec.api.domain;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -35,6 +38,19 @@ public class Veiculo {
 
 	@Embedded
 	private Caracteristica caracteristica;
+	
+  //@OneToOne(cascade = CascadeType.ALL) // Qualquer alteração no 'pai' reflete no filho 
+  //@OneToOne(cascade = CascadeType.REMOVE) // Apagar o veículo também apaga todas as manutenções feitas nele
+  //@OneToOne(cascade = CascadeType.PERSIST) // Insert
+  //@OneToOne(cascade = CascadeType.MERGE) // Insert para os filhos e Updates nos já existentes
+  //@OneToOne(cascade = CascadeType.SAVE_UPDATE) // (somente = Insert para os filhos e Updates nos já existentes)
+  //@OneToOne(cascade = CascadeType.REPLICATE) // Banco de dados replicados
+	
+  //@OneToOne(fetch= FetchType.LAZY) // Retorna todos os dados de uma lista e depois faz um get para cada item selecionado (Performance)
+	
+	@OneToOne(fetch= FetchType.EAGER) // Retorna toda a informação solicitada com um JOIN! 
+	@JoinColumn(name = "id_proprietario") //Qual a coluna responsável por fazer a ligação entre as duas tabelas
+	private Proprietario proprietario;
 
 	public Long getId() {
 		return id;
@@ -76,4 +92,13 @@ public class Veiculo {
 		this.caracteristica = caracteristica;
 	}
 
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
+	}
+
+	
 }
