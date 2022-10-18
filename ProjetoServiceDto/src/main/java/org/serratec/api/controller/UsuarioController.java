@@ -3,7 +3,8 @@ package org.serratec.api.controller;
 import java.net.URI;
 import java.util.List;
 
-import org.serratec.api.domain.Usuario;
+import org.serratec.api.dto.UsuarioDTO;
+import org.serratec.api.dto.UsuarioInserirDTO;
 import org.serratec.api.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +23,14 @@ public class UsuarioController {
 	UsuarioService usuarioService;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> listar() {
+	public ResponseEntity<List<UsuarioDTO>> listar() {
 		return ResponseEntity.ok(usuarioService.lista());
 	}
 	
 	@PostMapping
-	public ResponseEntity<Usuario> inserir(@RequestBody Usuario usuario) {
-		usuario = usuarioService.inserir(usuario);
-		URI uri = ServletUriComponentsBuilder
+	public ResponseEntity<UsuarioDTO> inserir(@RequestBody UsuarioInserirDTO usuarioInserirDTO) {
+		UsuarioDTO usuario = usuarioService.inserir(usuarioInserirDTO);
+		URI uri = ServletUriComponentsBuilder //Boa prática utilizar o URI
 				.fromCurrentRequest()
 				.path("/{id}")
 				.buildAndExpand(usuario.getId())
