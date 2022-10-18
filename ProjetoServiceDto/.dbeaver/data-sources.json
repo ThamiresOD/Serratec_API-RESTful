@@ -1,17 +1,17 @@
 {
 	"folders": {},
 	"connections": {
-		"postgres-jdbc-183b076cb28-3d3ca80a61be7ce2": {
+		"postgres-jdbc-183e912073e-583c5e6bc4b11be1": {
 			"provider": "postgresql",
 			"driver": "postgres-jdbc",
-			"name": "aula",
+			"name": "projetoServiceDTO",
 			"save-password": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "5432",
-				"database": "aula",
-				"url": "jdbc:postgresql://localhost:5432/aula",
+				"database": "projetoServiceDTO",
+				"url": "jdbc:postgresql://localhost:5432/projetoServiceDTO",
 				"configurationType": "MANUAL",
 				"home": "postgresql-x64-14",
 				"type": "dev",
@@ -26,7 +26,8 @@
 					"postgresql.dd.plain.string": "false",
 					"postgresql.dd.tag.string": "false"
 				},
-				"auth-model": "native"
+				"auth-model": "native",
+				"handlers": {}
 			}
 		}
 	},

@@ -13,27 +13,33 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "veiculo")
 public class Veiculo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value = "Identificador do veículo")
 	private Long id;
 
 	@NotBlank(message = "Preencha a placa")
 	@Size(max = 7)
 	@Column(nullable = false, length = 7)
+	@ApiModelProperty(value = "Placa do veículo")
 	private String placa;
 
 	@NotBlank(message = "Preencha a marca")
 	@Size(max = 30)
 	@Column(nullable = false, length = 30)
+	@ApiModelProperty(value = "Marca do veículo")
 	private String marca;
 
 	@NotBlank(message = "Preencha o modelo")
 	@Size(max = 40)
 	@Column(nullable = false, length = 40)
+	@ApiModelProperty(value = "Modelo do veículo")
 	private String modelo;
 
 	@Embedded

@@ -6,6 +6,7 @@
 			"driver": "postgres-jdbc",
 			"name": "aula",
 			"save-password": true,
+			"show-system-objects": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
