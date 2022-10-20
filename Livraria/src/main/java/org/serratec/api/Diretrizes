@@ -1,0 +1,67 @@
+	Criar uma API para o seguinte banco de dados:
+	
+	Livro
+	
+	id
+	titulo (40, not null)
+	Categoria (FK)
+	isbn (20,  not null, unique)
+	dataPublicacao (date)
+	Categoria
+	id
+	nome (30, not null)
+	descricao (200)
+	
+	
+	Associado
+	
+	id
+	nome (50, not null)
+	telefone (15, not null)
+	cpf (11,not nulll)
+	logradouro (80 not null)
+	numero (10 not null)
+	complemento (30 not null)
+	bairro (50 not null)
+	cidade (50 not null)
+	estado (2 not null)
+	
+	Autor
+	
+	id
+	nome (50 not null)
+	Livro_autor
+	id_livro
+	id_autor
+	
+	Emprestimo
+	
+	id
+	Associado (FK not null) 
+	dataEmprestimo (data, not null)
+	
+	Emprestimo_Livro
+	
+	id
+	id_emprestimo
+	id_Livro
+	observacoesAtoEmprestimo (200)
+	
+	
+	Deve-se usar swagger para documentar a API
+	
+	possibilidade de pesquisar livros por isbn
+	
+	endpoint que liste apenas o nome do livro e da 
+	categoria, ordenado por categoria
+	
+	endpoint para listar total de livros por autor
+	
+	
+	
+	
+	
+	
+	
+	
+	
