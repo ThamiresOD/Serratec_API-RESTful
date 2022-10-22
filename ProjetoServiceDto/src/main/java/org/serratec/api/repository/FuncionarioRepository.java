@@ -30,8 +30,8 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
 			" order by idade desc ", nativeQuery = true)
 			List<FuncionarioSalarioDTO> buscaSalariosPorIdade();
 	
-	@Query("select f from Funcionario f where UPPER(substring(f.nome,1,1)) between UPPER(:letral) and UPPER(:letra2)")
-	List<Funcionario> buscarPorLetraInicial(String letra1, String letra2);
+//	@Query("select f from Funcionario f where UPPER(substring(f.nome,1,1)) between UPPER(:letral) and UPPER(:letra2)")
+//	List<Funcionario> buscarPorLetraInicial(String letra1, String letra2);
 	
 	
 	Page<Funcionario> findBySalarioBetween(Double valorMinimo, Double valorMaximo, Pageable pageable);
